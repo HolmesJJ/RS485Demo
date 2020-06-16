@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         properties.extensions = new String[]{"jp2"};
         storage = new Storage(getApplicationContext());
 
-        // RESPONSE_ACCESS_GRANTED: 0x01-0x52-0x00-0xA1-0xF2
+// RESPONSE_ACCESS_GRANTED: 0x01-0x52-0x00-0xA1-0xF2
         Log.i(TAG, "RESPONSE_ACCESS_GRANTED -----------------");
         Log.i(TAG, "RESPONSE_ACCESS_GRANTED " +
                 HexByteUtil.HexToByte("01") + ", " +
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 HexByteUtil.HexToByte("F1"));
         Log.i(TAG, "RESPONSE_ACCESS_GRANTED Result 1, 82, 0, -94, -15" + ", CheckSum: " + (1 ^ 82 ^ 0 ^ -94));
 
-        // RESPONSE_PIN: 0x01-0x52-0x00-0xA2-0xF1
+        // RESPONSE_PIN: 0x01-0x52-0x00-0xAA-0xFF
         Log.i(TAG, "RESPONSE_PIN -----------------");
         Log.i(TAG, "RESPONSE_PIN " +
                 HexByteUtil.HexToByte("01") + ", " +
@@ -136,25 +136,77 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 HexByteUtil.HexToByte("FF"));
         Log.i(TAG, "RESPONSE_PIN Result 1, 84, 0, -86, -1" + ", CheckSum: " + (1 ^ 84 ^ 0 ^ -86));
 
-        // REQUEST_MATCHED: 0x01-0x52-0x00-0xA2-0xF1
-        Log.i(TAG, "REQUEST_MATCHED -----------------");
-        Log.i(TAG, "REQUEST_MATCHED " +
+        // REQUEST_MATCHED_WITH_MASK: 0x01-0x51-0x00-0xB1-0xE1
+        Log.i(TAG, "REQUEST_MATCHED_WITH_MASK -----------------");
+        Log.i(TAG, "REQUEST_MATCHED_WITH_MASK " +
                 HexByteUtil.HexToByte("01") + ", " +
                 HexByteUtil.HexToByte("51") + ", " +
                 HexByteUtil.HexToByte("00") + ", " +
                 HexByteUtil.HexToByte("B1") + ", " +
                 HexByteUtil.HexToByte("E1"));
-        Log.i(TAG, "REQUEST_MATCHED Result 1, 81, 0, -79, -31" + ", CheckSum: " + (1 ^ 81 ^ 0 ^ -79));
+        Log.i(TAG, "REQUEST_MATCHED_WITH_MASK Result 1, 81, 0, -79, -31" + ", CheckSum: " + (1 ^ 81 ^ 0 ^ -79));
 
-        Log.i(TAG, "REQUEST_MISMATCHED -----------------");
-        Log.i(TAG, "REQUEST_MISMATCHED " +
+        // REQUEST_MATCHED_WITHOUT_MASK: 0x01-0x51-0x00-0xB0-0xE0
+        Log.i(TAG, "REQUEST_MATCHED_WITHOUT_MASK -----------------");
+        Log.i(TAG, "REQUEST_MATCHED_WITHOUT_MASK " +
+                HexByteUtil.HexToByte("01") + ", " +
+                HexByteUtil.HexToByte("51") + ", " +
+                HexByteUtil.HexToByte("00") + ", " +
+                HexByteUtil.HexToByte("B0") + ", " +
+                HexByteUtil.HexToByte("E0"));
+        Log.i(TAG, "REQUEST_MATCHED_WITHOUT_MASK Result 1, 81, 0, -80, -32" + ", CheckSum: " + (1 ^ 81 ^ 0 ^ -80));
+
+        // REQUEST_MISMATCHED_WITH_MASK: 0x01-0x51-0x00-0xBE-0xEE
+        Log.i(TAG, "REQUEST_MISMATCHED_WITH_MASK -----------------");
+        Log.i(TAG, "REQUEST_MISMATCHED_WITH_MASK " +
+                HexByteUtil.HexToByte("01") + ", " +
+                HexByteUtil.HexToByte("51") + ", " +
+                HexByteUtil.HexToByte("00") + ", " +
+                HexByteUtil.HexToByte("BE") + ", " +
+                HexByteUtil.HexToByte("EE"));
+        Log.i(TAG, "REQUEST_MISMATCHED_WITH_MASK Result 1, 81, 0, -66, -18" + ", CheckSum: " + (1 ^ 81 ^ 0 ^ -66));
+
+        // REQUEST_MISMATCHED_WITHOUT_MASK: 0x01-0x51-0x00-0xBE-0xEE
+        Log.i(TAG, "REQUEST_MISMATCHED_WITHOUT_MASK -----------------");
+        Log.i(TAG, "REQUEST_MISMATCHED_WITHOUT_MASK " +
                 HexByteUtil.HexToByte("01") + ", " +
                 HexByteUtil.HexToByte("51") + ", " +
                 HexByteUtil.HexToByte("00") + ", " +
                 HexByteUtil.HexToByte("BF") + ", " +
                 HexByteUtil.HexToByte("EF"));
-        Log.i(TAG, "REQUEST_MISMATCHED Result 1, 81, 0, -65, -17" + ", CheckSum: " + (1 ^ 81 ^ 0 ^ -65));
+        Log.i(TAG, "REQUEST_MISMATCHED_WITHOUT_MASK Result 1, 81, 0, -65, -17" + ", CheckSum: " + (1 ^ 81 ^ 0 ^ -67));
 
+        // REQUEST_TEMPERATURE_ABNORMAL: 0x01-0x51-0x00-0xF1-0xA1
+        Log.i(TAG, "REQUEST_TEMPERATURE_ABNORMAL -----------------");
+        Log.i(TAG, "REQUEST_TEMPERATURE_ABNORMAL " +
+                HexByteUtil.HexToByte("01") + ", " +
+                HexByteUtil.HexToByte("51") + ", " +
+                HexByteUtil.HexToByte("00") + ", " +
+                HexByteUtil.HexToByte("F1") + ", " +
+                HexByteUtil.HexToByte("A1"));
+        Log.i(TAG, "REQUEST_TEMPERATURE_ABNORMAL Result 1, 81, 0, -15, -95" + ", CheckSum: " + (1 ^ 81 ^ 0 ^ -15));
+
+        // REQUEST_NO_LIVENESS: 0x01-0x51-0x00-0xF2-0xA2
+        Log.i(TAG, "REQUEST_NO_LIVENESS -----------------");
+        Log.i(TAG, "REQUEST_NO_LIVENESS " +
+                HexByteUtil.HexToByte("01") + ", " +
+                HexByteUtil.HexToByte("51") + ", " +
+                HexByteUtil.HexToByte("00") + ", " +
+                HexByteUtil.HexToByte("F2") + ", " +
+                HexByteUtil.HexToByte("A2"));
+        Log.i(TAG, "REQUEST_NO_LIVENESS Result 1, 81, 0, -14, -94" + ", CheckSum: " + (1 ^ 81 ^ 0 ^ -14));
+
+        // REQUEST_SYSTEM_ERROR: 0x01-0x51-0x00-0xF3-0xA3
+        Log.i(TAG, "REQUEST_SYSTEM_ERROR -----------------");
+        Log.i(TAG, "REQUEST_SYSTEM_ERROR " +
+                HexByteUtil.HexToByte("01") + ", " +
+                HexByteUtil.HexToByte("51") + ", " +
+                HexByteUtil.HexToByte("00") + ", " +
+                HexByteUtil.HexToByte("F3") + ", " +
+                HexByteUtil.HexToByte("A3"));
+        Log.i(TAG, "REQUEST_SYSTEM_ERROR Result 1, 81, 0, -13, -93" + ", CheckSum: " + (1 ^ 81 ^ 0 ^ -13));
+
+        // REQUEST_MATCH_TIMEOUT: 0x01-0x51-0x00-0xFF-0xAF
         Log.i(TAG, "REQUEST_MATCH_TIMEOUT -----------------");
         Log.i(TAG, "REQUEST_MATCH_TIMEOUT " +
                 HexByteUtil.HexToByte("01") + ", " +
@@ -164,6 +216,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 HexByteUtil.HexToByte("AF"));
         Log.i(TAG, "REQUEST_MATCH_TIMEOUT Result 1, 81, 0, -1, -81" + ", CheckSum: " + (1 ^ 81 ^ 0 ^ -1));
 
+        // REQUEST_PIN_TIMEOUT: 0x01-0x54-0x00-0xFF-0xAA
         Log.i(TAG, "REQUEST_PIN_TIMEOUT -----------------");
         Log.i(TAG, "REQUEST_PIN_TIMEOUT " +
                 HexByteUtil.HexToByte("01") + ", " +
