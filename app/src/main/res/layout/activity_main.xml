@@ -56,19 +56,49 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:text="MATCHED: 1, 81, 0, -79, -31"/>
+            android:layout_marginLeft="50dp"
+            android:text="MATCHED_WITH_MASK: 1, 81, 0, -79, -31"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:text="MISMATCHED: 1, 81, 0, -65, -17"/>
+            android:layout_marginLeft="50dp"
+            android:text="MATCHED_WITHOUT_MASK: 1, 81, 0, -80, -32"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="50dp"
+            android:text="MISMATCHED_WITH_MASK: 1, 81, 0, -66, -18"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="MISMATCHED_WITHOUT_MASK: 1, 81, 0, -65, -17"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="TEMPERATURE_ABNORMAL: 1, 81, 0, -15, -95"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="NO_LIVENESS: 1, 81, 0, -14, -94"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="SYSTEM_ERROR: 1, 81, 0, -13, -93"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
             android:text="MATCH TIMEOUT: 1, 81, 0, -1, -81"/>
 
         <Button
@@ -130,7 +160,7 @@
         android:id="@+id/main_send_byte_txv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="22dp"
         android:text="送出Byte: "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -140,6 +170,7 @@
         android:id="@+id/main_clear_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="100dp"
         android:text="清除IO訊息"
         app:layout_constraintBottom_toBottomOf="parent"

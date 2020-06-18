@@ -410,6 +410,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                     @Override
                     public void run() {
                         ShowMessage(Arrays.toString(data));
+                        Log.i(TAG,"data: " + data.length);
 
 //                        mReceiveByteTxv.setText("收到數據 : " + Arrays.toString(data).replace(","," ")
 //                                .replace("[","")
